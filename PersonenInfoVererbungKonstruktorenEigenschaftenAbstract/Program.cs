@@ -19,17 +19,17 @@ namespace PersonenInfoVererbungKonstruktorenEigenschaftenAbstract
      */
         static void Main(string[] args)
         {
-            Student st1 = new Student("Harald", "Mayer", 33, 2017, "Informatik");
-            Student st2 = new Student("Maria", "Huber", 24, 2016, "Publizistik");
-            Student st3 = new Student("Gloria", "Metzger", 22, 2015, "Soziologie");
+            Student st1 = new Student("Harald", "Mayer", 33, 2017, "Informatik", Geschlecht.männlich);
+            Student st2 = new Student("Maria", "Huber", 24, 2016, "Publizistik", Geschlecht.weiblich);
+            Student st3 = new Student("Gloria", "Metzger", 22, 2015, "Soziologie", Geschlecht.weiblich);
 
-            Professor pr1 = new Professor("Rudolf", "Rogl", 62, "Programmieren");
-            Professor pr2 = new Professor("Heino", "Bichler", 45, "Mathematik");
-            Professor pr3 = new Professor("Henriete", "Müller", 36, "Hauswirtschaftslehre");
+            Professor pr1 = new Professor("Rudolf", "Rogl", 62, "Programmieren", Geschlecht.männlich);
+            Professor pr2 = new Professor("Heino", "Bichler", 45, "Mathematik", Geschlecht.männlich);
+            Professor pr3 = new Professor("Henriete", "Müller", 36, "Hauswirtschaftslehre", Geschlecht.weiblich);
 
-            Dozent dz1 = new Dozent("Gerhard", "Hinterleitner", 35, "Ernährungslehre");
-            Dozent dz2 = new Dozent("Silvia", "Grötzl", 32, "Psychologie");
-            Dozent dz3 = new Dozent("Hanelore", "Geiger", 43, "Deutsch");
+            Dozent dz1 = new Dozent("Gerhard", "Hinterleitner", 35, "Ernährungslehre", Geschlecht.männlich);
+            Dozent dz2 = new Dozent("Silvia", "Grötzl", 32, "Psychologie", Geschlecht.weiblich);
+            Dozent dz3 = new Dozent("Hanelore", "Geiger", 43, "Deutsch", Geschlecht.weiblich);
 
             List<Person> people = new List<Person>
             {
@@ -38,7 +38,29 @@ namespace PersonenInfoVererbungKonstruktorenEigenschaftenAbstract
                 dz1, dz2, dz3
             };
             foreach (var p in people)
-            { p.KurzInfoAusgeben(); Write($"Geboren im Jahr: {Geburtsjahr(p)}"); }
+            { Write( $" { ( p is Student ? "Student: ": p is Professor ? "Professor: " : p is Dozent ? "Dozent: " : "" ) }"); p.KurzInfoAusgeben();
+                Write($"Geboren im Jahr: {Geburtsjahr(p)}{(p is Student ? " (Studiertzeit in Jahren: "+StudierZeit_in_Jahren((Student)p).ToString()+")"  : "")}" + Environment.NewLine); }
+
+            //foreach(var p in people) { if (p is Professor) p.Alter = 60;}
+            for(int i = people.Count - 1; i >= 0 ; i--)
+            {
+                if (people[i] is Professor)
+                    people[i].Alter = 60;
+                else if (people[i] is Student)
+                    people.RemoveAt(i);
+            }
+
+
+            WriteLine();
+            //people.ForEach(x => x.KurzInfoAusgeben());
+            foreach(Person p in people)
+            {
+                Write($"{(p is Student ? "Student: " :  p is Professor  ? p.Sex == Geschlecht.weiblich ? "Professorin " : "Professor " :  p is Dozent ? p.Sex == Geschlecht.weiblich ? "Dozentin " : "Dozent " : "")}");
+                p.KurzInfoAusgeben();
+                Write(Environment.NewLine);
+
+            }
+
         }
     }
 }
