@@ -5,4 +5,10 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="PersonenKurzInfo.Bibliothek">
+      <HintPath>..\..\PersonenKurzInfo\PersonenKurzInfo.Bibliothek\PersonenKurzInfo.Bibliothek\bin\Debug\netcoreapp3.0\PersonenKurzInfo.Bibliothek.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

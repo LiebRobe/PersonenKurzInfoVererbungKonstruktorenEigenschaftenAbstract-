@@ -1,12 +1,24 @@
 ﻿using System;
+using PersonenKurzInfo.Bibliothek;
+
+using static System.Console;
+using static PersonenKurzInfo.Bibliothek.Berechne;
 
 namespace PersonenInfoVererbungKonstruktorenEigenschaftenAbstract
 {
     class Program
     {
+        /* Erstellen Sie für jede abgeleitete Klasse zumindest zwei Objekte und fügen Sie alle
+     * einer Liste hinzu.
+     * Geben Sie danach alle Personen der Liste mit der Methode AusgebenKurzInfo aus.
+     * Ändern Sie das Alter aller Professoren auf 60 und entfernen Sie alle Studenten aus
+     * der Liste.
+     * Geben Sie danach alle Personen der Liste erneut mit der Methode AusgebenKurzInfo
+     * aus.
+     */
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 
@@ -85,14 +97,7 @@ namespace PersonenInfoVererbungKonstruktorenEigenschaftenAbstract
        */
 
 
-    /* Erstellen Sie für jede abgeleitete Klasse zumindest zwei Objekte und fügen Sie alle
-      * einer Liste hinzu.
-      * Geben Sie danach alle Personen der Liste mit der Methode AusgebenKurzInfo aus.
-      * Ändern Sie das Alter aller Professoren auf 60 und entfernen Sie alle Studenten aus
-      * der Liste.
-      * Geben Sie danach alle Personen der Liste erneut mit der Methode AusgebenKurzInfo
-      * aus.
-      */
+   
 
 
 
