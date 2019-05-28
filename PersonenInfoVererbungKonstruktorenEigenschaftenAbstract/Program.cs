@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using PersonenKurzInfo.Bibliothek;
 
 using static System.Console;
@@ -18,10 +19,29 @@ namespace PersonenInfoVererbungKonstruktorenEigenschaftenAbstract
      */
         static void Main(string[] args)
         {
-            
+            Student st1 = new Student("Harald", "Mayer", 33, 2017, "Informatik");
+            Student st2 = new Student("Maria", "Huber", 24, 2016, "Publizistik");
+            Student st3 = new Student("Gloria", "Metzger", 22, 2015, "Soziologie");
+
+            Professor pr1 = new Professor("Rudolf", "Rogl", 62, "Programmieren");
+            Professor pr2 = new Professor("Heino", "Bichler", 45, "Mathematik");
+            Professor pr3 = new Professor("Henriete", "Müller", 36, "Hauswirtschaftslehre");
+
+            Dozent dz1 = new Dozent("Gerhard", "Hinterleitner", 35, "Ernährungslehre");
+            Dozent dz2 = new Dozent("Silvia", "Grötzl", 32, "Psychologie");
+            Dozent dz3 = new Dozent("Hanelore", "Geiger", 43, "Deutsch");
+
+            List<Person> people = new List<Person>
+            {
+                st1, st2, st3,
+                pr1, pr2, pr3,
+                dz1, dz2, dz3
+            };
+            foreach (var p in people)
+            { p.KurzInfoAusgeben(); Write($"Geboren im Jahr: {Geburtsjahr(p)}"); }
         }
     }
-
+}
     /* Übung: PersonenKurzInfo,Vererbung, Konstruktoren, Eigenschaften, abstract
      * -----------------------
      * 
@@ -104,4 +124,4 @@ namespace PersonenInfoVererbungKonstruktorenEigenschaftenAbstract
 
 
 
-}
+
